@@ -1,0 +1,71 @@
+<style type="text/css">
+
+
+	
+.container {
+width: 1400px;
+height: 500px;
+border: 2px solid black;
+padding: 20px;
+position: relative;
+}
+.inner {
+position absolute;
+width: 180px;
+height: 180px;
+}
+</style>
+	
+
+<script language="javascript">
+	function move_picture(d)
+	{
+		if(d=='right')
+		{
+			position_left=document.getElementById('box').style.left;
+			position_left=position_left.substring(0,position_left.length-2);
+			position_left=parseInt(position_left)+20;
+			document.getElementById('box').style.left=position_left+"px";
+			document.getElementById('box').innerHTML='<img src=right.png />';
+			
+		
+		}
+		if(d=='left')
+		{
+			position_left=document.getElementById('box').style.left;
+			position_left=position_left.substring(0,position_left.length-2);
+			position_left=parseInt(position_left)-20;
+			document.getElementById('box').style.left=position_left+"px";
+			document.getElementById('box').innerHTML='<img src=left.png />';
+		}
+		if(d=='up')
+		{
+			position_top=document.getElementById('box').style.top;
+			position_top=position_top.substring(0,position_top.length-2);
+			position_top=parseInt(position_top)-20;
+			document.getElementById('box').style.top=position_top+"px";
+			document.getElementById('box').innerHTML='<img src=up.png />';
+		}
+		if(d=='down')
+		{
+			position_top=document.getElementById('box').style.top;
+			position_top=position_top.substring(0,position_top.length-2);
+			position_top=parseInt(position_top)+20;
+			document.getElementById('box').style.top=position_top+"px";
+			document.getElementById('box').innerHTML='<img src=down.png />';
+		}
+pictureDiv.style.top = currentposition.top + "px";
+pictureDiv.style.top = currentposition.left + "px";
+
+	}
+
+</script>
+<input type="button" value=Right onclick=move_picture('right'); />
+<input type="button" value=Left onclick=move_picture('left'); />
+<input type="button" value=Up onclick=move_picture('up'); />
+<input type="button" value=Down onclick=move_picture('down'); />
+
+<div id=box style="top:200px; left:500px; position: absolute;">
+	<img src=right.png />
+</div>
+<div style="width:1300px; height: 600px; border: solid;"> </div>

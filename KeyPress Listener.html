@@ -1,0 +1,75 @@
+<style type="text/css">
+#container {
+    width: 1410px;
+    height: 700px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    width: 200px;
+    height: 180px;
+    position: absolute;
+}
+</style>
+
+<div id="container">
+  <img  style="top: 200px; left: 200px; position: absolute" src="right.png" id="box" />
+</div>
+
+<script>
+var box = document.getElementById("box");
+var container = document.getElementById("container");
+var x = 200;
+var y = 180;
+
+    document.addEventListener("keydown", function(event) {
+        if (event.code === "KeyW") {
+            move_picture("up");
+        } else if (event.code === "KeyZ") {
+            move_picture("down");
+        } else if (event.code === "KeyA") {
+            move_picture("left");
+        } else if (event.code === "KeyD") {
+            move_picture("right");
+        }
+    });
+
+function move_picture(d) {
+  if (d == "right") {
+    box.src = "right.png";
+    x += 100;
+    if (x > container.clientWidth - box.clientWidth) {
+      x = container.clientWidth - box.clientWidth;
+    }
+    box.style.left = x + "px";
+  }
+  if (d == "left") {
+    box.src = "left.png";
+    x -= 100;
+    if (x < 0) {
+      x = 0;
+    }
+    box.style.left = x + "px";
+  }
+  if (d == "down") {
+    box.src = "down.png";
+    y += 100;
+    if (y > container.clientHeight - box.clientHeight) {
+      y = container.clientHeight - box.clientHeight;
+    }
+    box.style.top = y + "px";
+  }
+  if (d == "up") {
+    box.src = "up.png";
+    y -= 100;
+    if (y < 0) {
+      y = 0;
+    }
+    box.style.top = y + "px";
+  }
+}
+</script>
+
+
